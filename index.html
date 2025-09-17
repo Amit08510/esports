@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UK E-Sports League - Premier Gaming Competition</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#3b82f6',
+              secondary: '#8b5cf6',
+              accent: '#f97316',
+              dark: {
+                900: '#0a0a0a',
+                800: '#1a1a1a',
+                700: '#262626',
+                600: '#404040'
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer utilities {
+            .hero-gradient {
+                background: linear-gradient(135deg, #1e40af 0%, #7e22ce 100%);
+            }
+            
+            .feature-icon {
+                @apply text-5xl mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+            }
+            
+            .stats-card {
+                @apply bg-gradient-to-r from-primary to-secondary text-white rounded-xl text-center p-8 mb-4;
+            }
+            
+            .leaderboard-card {
+                @apply bg-dark-700 rounded-xl overflow-hidden shadow-lg;
+            }
+            
+            .btn-hero {
+                @apply py-3 px-6 font-semibold rounded-full m-2 transition-all duration-300;
+            }
+            
+            .feature-card {
+                @apply transition-all duration-300 border-0 h-full bg-dark-700 rounded-xl overflow-hidden shadow-md hover:shadow-xl;
+            }
+            
+            .feature-card:hover {
+                transform: translateY(-0.5rem);
+            }
+        }
+    </style>
+  </head>
+
+  <body class="bg-dark-900 text-white min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="sticky top-0 z-50">
+      <nav class="bg-dark-800 shadow-md">
+        <div class="container mx-auto px-4">
+          <div class="flex justify-between items-center py-4">
+            <a class="text-xl font-bold" href="#home">
+              <i class="fas fa-trophy text-accent mr-2"></i>
+              UK E-Sports League
+            </a>
+
+            <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+
+            <div class="hidden md:flex space-x-8" id="navbar-menu">
+              <a class="hover:text-accent transition-colors" href="#home">Home</a>
+              <a class="hover:text-accent transition-colors" href="#features">Features</a>
+              <a class="hover:text-accent transition-colors" href="#leaderboard">Leaderboard</a>
+              <a class="hover:text-accent transition-colors" href="#stats">Stats</a>
+              <a class="hover:text-accent transition-colors" href="admin_login.html">Admin</a>
+            </div>
+          </div>
+
+          <!-- Mobile menu -->
+          <div class="hidden py-4 border-t border-dark-600" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+              <a class="hover:text-accent transition-colors" href="#home">Home</a>
+              <a class="hover:text-accent transition-colors" href="#features">Features</a>
+              <a class="hover:text-accent transition-colors" href="#leaderboard">Leaderboard</a>
+              <a class="hover:text-accent transition-colors" href="#stats">Stats</a>
+              <a class="hover:text-accent transition-colors" href="admin_login.html">Admin</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+      <!-- Hero Section -->
+      <section id="home" class="hero-gradient min-h-[70vh] flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="container mx-auto px-4 relative z-10 py-12">
+          <div class="flex flex-col lg:flex-row items-center">
+            <div class="lg:w-2/3 mb-12 lg:mb-0">
+              <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">UK E-Sports League</h1>
+              <p class="text-xl mb-8 max-w-2xl">Join the premier competitive gaming community in the United Kingdom.
+                Battle for
+                glory, earn exclusive rewards, and become a legend.</p>
+              <div class="flex flex-wrap">
+                <a href="register_form.html" class="bg-accent hover:bg-orange-600 text-white btn-hero">
+                  <i class="fas fa-user-plus mr-2"></i>Register Now
+                </a>
+                <a href="admin_login.html"
+                  class="border-2 border-white hover:bg-white hover:text-black text-white btn-hero">
+                  <i class="fas fa-cog mr-2"></i>Admin Login
+                </a>
+              </div>
+            </div>
+            <div class="lg:w-1/3 flex justify-center">
+              <i class="fas fa-gamepad text-white opacity-20 text-9xl"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-4">Why Choose UK E-Sports League?</h2>
+            <p class="text-gray-400 text-xl">Experience the ultimate competitive gaming platform</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="feature-card">
+              <div class="card-body p-6 text-center">
+                <i class="fas fa-trophy feature-icon"></i>
+                <h4 class="text-xl font-semibold mb-2">Competitive Tournaments</h4>
+                <p class="text-gray-400">Join official tournaments with cash prizes and exclusive merchandise for top
+                  performers.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="card-body p-6 text-center">
+                <i class="fas fa-users feature-icon"></i>
+                <h4 class="text-xl font-semibold mb-2">Team Management</h4>
+                <p class="text-gray-400">Create or join teams, track performance statistics, and climb the leaderboards
+                  together.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="card-body p-6 text-center">
+                <i class="fas fa-chart-line feature-icon"></i>
+                <h4 class="text-xl font-semibold mb-2">Live Statistics</h4>
+                <p class="text-gray-400">Real-time tracking of kills, deaths, K/D ratios, and comprehensive performance
+                  analytics.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="card-body p-6 text-center">
+                <i class="fas fa-gift feature-icon"></i>
+                <h4 class="text-xl font-semibold mb-2">Exclusive Rewards</h4>
+                <p class="text-gray-400">Earn exclusive merchandise, gaming gear, and special recognition for your
+                  achievements.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="card-body p-6 text-center">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h4 class="text-xl font-semibold mb-2">Fair Play</h4>
+                <p class="text-gray-400">Anti-cheat systems and professional moderation ensure a fair competitive
+                  environment.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="card-body p-6 text-center">
+                <i class="fas fa-headset feature-icon"></i>
+                <h4 class="text-xl font-semibold mb-2">24/7 Support</h4>
+                <p class="text-gray-400">Round-the-clock technical support and community management for all
+                  participants.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats & Leaderboard Section -->
+      <section id="stats" class="py-16 bg-dark-800">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Statistics Cards -->
+            <div class="lg:w-1/3">
+              <h3 class="text-2xl font-bold text-center mb-6">League Statistics</h3>
+
+              <div class="stats-card">
+                <i class="fas fa-users fa-3x mb-4"></i>
+                <h2 class="text-4xl font-bold mb-2" id="total-teams">-</h2>
+                <h5 class="text-xl">Active Teams</h5>
+              </div>
+
+              <div class="stats-card">
+                <i class="fas fa-user fa-3x mb-4"></i>
+                <h2 class="text-4xl font-bold mb-2" id="total-participants">-</h2>
+                <h5 class="text-xl">Registered Players</h5>
+              </div>
+            </div>
+
+            <!-- Leaderboard -->
+            <div class="lg:w-2/3">
+              <h3 class="text-2xl font-bold text-center mb-6" id="leaderboard">Team Leaderboard</h3>
+              <div class="leaderboard-card">
+                <div class="overflow-x-auto">
+                  <table class="min-w-full">
+                    <thead class="bg-dark-600">
+                      <tr>
+                        <th class="py-3 px-4 text-left">Rank</th>
+                        <th class="py-3 px-4 text-left">Team</th>
+                        <th class="py-3 px-4 text-left">Location</th>
+                        <th class="py-3 px-4 text-left">Total Kills</th>
+                        <th class="py-3 px-4 text-left">Total Deaths</th>
+                        <th class="py-3 px-4 text-left">K/D Ratio</th>
+                        <th class="py-3 px-4 text-left">Players</th>
+                      </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                      <tr>
+                        <td colspan="7" class="py-8 text-center">
+                          <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                          <p class="mt-4">Loading leaderboard...</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <hr>
+    <!-- Footer -->
+    <footer class="bg-dark-800 py-12 mt-auto">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h5 class="text-xl font-semibold mb-4 flex items-center">
+              <i class="fas fa-trophy text-accent mr-2"></i>
+              UK E-Sports League
+            </h5>
+            <p class="text-gray-400">The premier destination for competitive gaming in the United Kingdom. Join
+              thousands
+              of players competing for glory and prizes.</p>
+          </div>
+
+          <div>
+            <h6 class="text-lg font-semibold mb-4">Quick Links</h6>
+            <ul class="space-y-2">
+              <li><a href="register_form.html" class="text-gray-400 hover:text-accent transition-colors">Register</a>
+              </li>
+              <li><a href="admin_login.html" class="text-gray-400 hover:text-accent transition-colors">Admin Login</a>
+              </li>
+              <li><a href="#features" class="text-gray-400 hover:text-accent transition-colors">Features</a></li>
+              <li><a href="#leaderboard" class="text-gray-400 hover:text-accent transition-colors">Leaderboard</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h6 class="text-lg font-semibold mb-4">Contact</h6>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-2 w-5"></i>
+                info@ukesports.com
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone mr-2 w-5"></i>
+                +11 11 1111 1111
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-2 w-5"></i>
+                London, UK
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="border-dark-600 my-8">
+
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 UK E-Sports League. All rights reserved.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook fa-lg"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter fa-lg"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram fa-lg"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-discord fa-lg"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile menu toggle
+      document.getElementById('mobile-menu-button').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          if (this.getAttribute('href') === '#') return;
+
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Load statistics and leaderboard data
+      async function loadStats() {
+        try {
+          const response = await fetch('get_stats.php');
+          const data = await response.json();
+
+          if (data.success) {
+            // Update statistics
+            document.getElementById('total-teams').textContent = data.total_teams;
+            document.getElementById('total-participants').textContent = data.total_participants;
+
+            // Update leaderboard
+            const leaderboardBody = document.getElementById('leaderboard-body');
+            leaderboardBody.innerHTML = '';
+
+            if (data.leaderboard && data.leaderboard.length > 0) {
+              data.leaderboard.forEach((team, index) => {
+                const rankClass = getRankClass(index);
+                const row = `
+                                <tr class="border-b border-dark-600 hover:bg-dark-600 transition-colors">
+                                    <td class="py-3 px-4">
+                                        <span class="${rankClass} py-1 px-3 rounded-full text-xs font-semibold">
+                                            #${index + 1}
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4 font-semibold">${escapeHtml(team.name)}</td>
+                                    <td class="py-3 px-4">${escapeHtml(team.location)}</td>
+                                    <td class="py-3 px-4">
+                                        <span class="bg-green-700 text-green-100 py-1 px-2 rounded text-xs">
+                                            ${team.total_kills}
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="bg-red-700 text-red-100 py-1 px-2 rounded text-xs">
+                                            ${team.total_deaths}
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="bg-blue-700 text-blue-100 py-1 px-2 rounded text-xs">
+                                            ${team.kd_ratio}
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4">${team.player_count}</td>
+                                </tr>
+                            `;
+                leaderboardBody.innerHTML += row;
+              });
+            } else {
+              leaderboardBody.innerHTML = `
+                            <tr>
+                                <td colspan="7" class="py-8 text-center text-gray-400">
+                                    <i class="fas fa-info-circle text-2xl mb-2"></i>
+                                    <p>No teams found</p>
+                                </td>
+                            </tr>
+                        `;
+            }
+          } else {
+            throw new Error('Failed to load data');
+          }
+        } catch (error) {
+          console.error('Error loading stats:', error);
+          document.getElementById('leaderboard-body').innerHTML = `
+                    <tr>
+                        <td colspan="7" class="py-8 text-center text-gray-400">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
+                            <p>Unable to load leaderboard</p>
+                        </td>
+                    </tr>
+                `;
+          document.getElementById('total-teams').textContent = '-';
+          document.getElementById('total-participants').textContent = '-';
+        }
+      }
+
+      function getRankClass(index) {
+        if (index === 0) return 'bg-yellow-500 text-yellow-900'; // Gold
+        if (index === 1) return 'bg-gray-400 text-gray-900'; // Silver
+        if (index === 2) return 'bg-amber-700 text-amber-100'; // Bronze
+        return 'bg-primary text-white';
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      // Load stats when page loads
+      document.addEventListener('DOMContentLoaded', loadStats);
+    </script>
+  </body>
+
+</html>

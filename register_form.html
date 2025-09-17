@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register for Merchandise - UK E-Sports League</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#3b82f6',
+              secondary: '#8b5cf6',
+              accent: '#f97316',
+              dark: {
+                900: '#0a0a0a',
+                800: '#1a1a1a',
+                700: '#262626',
+                600: '#404040'
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer utilities {
+            .btn-primary {
+                @apply bg-accent hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-md transition-colors duration-300;
+            }
+            
+            .btn-secondary {
+                @apply border border-gray-600 hover:bg-gray-700 text-gray-300 font-medium py-2 px-4 rounded-md transition-colors duration-300;
+            }
+            
+            .form-input {
+                @apply w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent;
+            }
+            
+            .form-label {
+                @apply block text-gray-300 mb-2 font-medium;
+            }
+        }
+    </style>
+  </head>
+
+  <body class="bg-dark-900 min-h-screen flex items-center justify-center py-12 px-4">
+    <div class="w-full max-w-md">
+      <div class="bg-dark-800 rounded-xl shadow-xl overflow-hidden border border-gray-700">
+        <div class="bg-gradient-to-r from-green-700 to-green-800 py-5 px-6 text-center">
+          <h3 class="text-xl font-bold text-white">Register for Free Merchandise</h3>
+          <p class="text-green-100 text-sm mt-1">UK E-Sports League</p>
+        </div>
+
+        <div class="p-6">
+          <form action="register.php" method="POST">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-input" id="firstname" name="firstname" required
+                  placeholder="Enter your first name">
+              </div>
+              <div>
+                <label for="surname" class="form-label">Surname</label>
+                <input type="text" class="form-input" id="surname" name="surname" required
+                  placeholder="Enter your surname">
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-input" id="email" name="email" required
+                placeholder="your.email@example.com">
+            </div>
+
+            <div class="mb-6">
+              <div class="flex items-start">
+                <div class="flex items-center h-5">
+                  <input id="terms" name="terms" type="checkbox" value="yes"
+                    class="w-4 h-4 accent-accent bg-gray-700 border-gray-600 rounded focus:ring-accent">
+                </div>
+                <label for="terms" class="ml-3 text-sm text-gray-300">
+                  I accept the <a href="#" class="text-accent hover:underline">terms and conditions</a>
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full btn-primary py-3 text-lg flex items-center justify-center">
+              <i class="fas fa-ticket-alt mr-2"></i>Register Now
+            </button>
+          </form>
+        </div>
+
+        <div class="bg-dark-700 px-6 py-4 text-center">
+          <a href="index.html" class="btn-secondary inline-flex items-center">
+            <i class="fas fa-arrow-left mr-2"></i>Back to Home
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 text-center text-gray-500 text-sm">
+        <p>Already have an account? <a href="#" class="text-accent hover:underline">Sign in here</a></p>
+      </div>
+    </div>
+  </body>
+
+</html>
